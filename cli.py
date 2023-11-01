@@ -18,6 +18,7 @@ def get_move():
         move = input("Enter your move (row, column): ")
         try:
             row, column = map(int, move.split(","))
+            ## transfer the computer language to human language of numbers
             return row-1, column-1
         except ValueError:
             print("Invalid move. Please enter row and column separated by a comma.")
