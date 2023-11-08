@@ -1,0 +1,183 @@
+
+"""
+Test: X is winner
+yomaru@Wanlings-MacBook-Pro techin509b-tictactoe % python3 cli.py
+[None, None, None]
+[None, None, None]
+[None, None, None]
+player X > 2,2
+
+
+[None, None, None]
+[None, None, None]
+[None, None, 'X']
+player O > 0,0
+
+
+['O', None, None]
+[None, None, None]
+[None, None, 'X']
+player X > 2,1
+
+
+['O', None, None]
+[None, None, None]
+[None, 'X', 'X']
+player O > 0,1
+
+
+['O', 'O', None]
+[None, None, None]
+[None, 'X', 'X']
+player X > 0,3
+Out of bounds, try again
+
+['O', 'O', None]
+[None, None, None]
+[None, 'X', 'X']
+player X > 0,2
+
+
+['O', 'O', 'X']
+[None, None, None]
+[None, 'X', 'X']
+player O > 1,1
+
+
+['O', 'O', 'X']
+[None, 'O', None]
+[None, 'X', 'X']
+player X > 1,2
+
+
+['O', 'O', 'X']
+[None, 'O', 'X']
+[None, 'X', 'X']
+Winner is X
+"""
+
+"""
+Test: 0 is winner
+yomaru@Wanlings-MacBook-Pro techin509b-tictactoe % python3 cli.py
+[None, None, None]
+[None, None, None]
+[None, None, None]
+player X > 2,2
+
+
+[None, None, None]
+[None, None, None]
+[None, None, 'X']
+player O > 0,0
+
+
+['O', None, None]
+[None, None, None]
+[None, None, 'X']
+player X > 1,1
+
+
+['O', None, None]
+[None, 'X', None]
+[None, None, 'X']
+player O > 0,1
+
+
+['O', 'O', None]
+[None, 'X', None]
+[None, None, 'X']
+player X > 1.1
+Invalid input, try again
+
+['O', 'O', None]
+[None, 'X', None]
+[None, None, 'X']
+player X > 0,1
+0,1 already has mark O, please choose another place
+
+['O', 'O', None]
+[None, 'X', None]
+[None, None, 'X']
+player X > 1,0
+
+
+['O', 'O', None]
+['X', 'X', None]
+[None, None, 'X']
+player O > 0,2
+
+
+['O', 'O', 'O']
+['X', 'X', None]
+[None, None, 'X']
+Winner is O
+"""
+
+"""
+Test: No winner
+yomaru@Wanlings-MacBook-Pro techin509b-tictactoe % python3 cli.py
+[None, None, None]
+[None, None, None]
+[None, None, None]
+player X > 1,1
+
+
+[None, None, None]
+[None, 'X', None]
+[None, None, None]
+player O > 0,1
+
+
+[None, 'O', None]
+[None, 'X', None]
+[None, None, None]
+player X > 0,0
+
+
+['X', 'O', None]
+[None, 'X', None]
+[None, None, None]
+player O > 2,2
+
+
+['X', 'O', None]
+[None, 'X', None]
+[None, None, 'O']
+player X > 1,0
+
+
+['X', 'O', None]
+['X', 'X', None]
+[None, None, 'O']
+player O > 2,0
+
+
+['X', 'O', None]
+['X', 'X', None]
+['O', None, 'O']
+player X > 0,2
+
+
+['X', 'O', 'X']
+['X', 'X', None]
+['O', None, 'O']
+player O > 1,2
+
+
+['X', 'O', 'X']
+['X', 'X', 'O']
+['O', None, 'O']
+player X > 1,2
+1,2 already has mark O, please choose another place
+
+['X', 'O', 'X']
+['X', 'X', 'O']
+['O', None, 'O']
+player X > 2,1
+
+
+['X', 'O', 'X']
+['X', 'X', 'O']
+['O', 'X', 'O']
+Winner is draw
+"""

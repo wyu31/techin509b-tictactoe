@@ -1,34 +1,36 @@
-def make_empty_board():
-    return [
-        [None, None, None],
-        [None, None, None],
-        [None, None, None],
-    ]
-
-
-def get_winner(board):
-    """Determines the winner of the given board.
-    Returns 'X', 'O', or None."""
-    # Check rows
+def check_winner(board):
     for row in board:
-        if row[0] == row[1] == row[2] and row[0] is not None:
+        if len(set(row)) == 1:
             return row[0]
 
-    # Check columns
-    for column in range(3):
-        if board[0][column] == board[1][column] == board[2][column] and board[0][column] is not None:
-            return board[0][column]
 
-    # Check diagonals
-    if board[0][0] == board[1][1] == board[2][2] and board[0][0] is not None:
+    for i in range(len(board)):
+        # len(board) -> 3
+        column = [board[j][i] for j in range(len(board))]
+        if len(set(column)) == 1:
+            return board[0][i]
+
+    top_left_to_bottom_right = [board[i][i] for i in range(len(board))]
+    if len(set(top_left_to_bottom_right)) == 1:
         return board[0][0]
-    if board[0][2] == board[1][1] == board[2][0] and board[0][2] is not None:
-        return board[0][2]
 
-    # No winner
+    top_right_to_bottom_left = [board[i][len(board)-i-1] for i in range(len(board))]
+    if len(set(top_right_to_bottom_left)) == 1:
+        return board[0][len(board)-1]
+
+    flat_board = []
+    for row in board:
+        flat_board.extend(row)
+    if not None in flat_board:
+        return "draw"
+
+    # game still in play
     return None
 
-
-def other_player(player):
-    """Given the character for a player, returns the other player."""
-    return 'O' if player == 'X' else 'X'
+if __name__ == "__main__":
+    board = [
+        ["X", "X", "O"],
+        ["O", "O", "X"],
+        ["X", "X", "O"],
+    ]
+    print(check_winner(board))

@@ -1,5 +1,5 @@
 import unittest
-import logic
+import logs.logic as logic
 
 
 class TestLogic(unittest.TestCase):
