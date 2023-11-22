@@ -43,9 +43,3 @@ Tests specific to the bot's behavior in the game.
 TestGame: 
 Overall game logic and flow tests.
 
-# Contributing
-If you'd like to contribute to the test suite or the application, please feel free to make a pull request.
-
-# License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
