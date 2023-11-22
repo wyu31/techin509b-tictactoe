@@ -31,16 +31,16 @@ python -m unittest discover
 # Test Breakdown
 The test suite includes the following components:
 
-# TestBoard
+TestBoard
 Tests related to the game board's functionality.
 
-# TestPlayer: 
+TestPlayer: 
 Tests for player actions and attributes.
 
-# TestBot: 
+TestBot: 
 Tests specific to the bot's behavior in the game.
 
-# TestGame: 
+TestGame: 
 Overall game logic and flow tests.
 
 # Contributing
