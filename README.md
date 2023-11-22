@@ -24,6 +24,7 @@ bash
 python -m unittest tests.py
 
 This command will discover and run all the tests defined in the tests.py file. If you have multiple test files and want to run all tests in the directory, use:
+
 bash
 python -m unittest discover
 
