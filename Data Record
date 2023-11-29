@@ -1,0 +1,23 @@
+    def log_game_result(self, winner):
+        log_dir = 'logs'
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        log_file = os.path.join(log_dir, 'game_logs.csv')
+        log_exists = os.path.exists(log_file)
+        player_o_type = 'Bot' if isinstance(self.player2, Bot) else 'Human'
+        if not log_exists:
+            print('Creating new log file')
+            with open(log_file, 'w', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow(['Timestamp', 'Winner', 'Player X Moves', 'Player O Moves', 'Player O Type'])
+        with open(log_file, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                datetime.now(), 
+                winner, 
+                self.move_count['X'], 
+                self.move_count['O'], 
+                player_o_type
+            ])
+
+# This coding is integrated to the game.py
