@@ -10,7 +10,7 @@ class Game:
         self.player1 = Player("X")
         self.current_player = self.player1
         self.player2 = Bot("O") if player_mode == 1 else Player("O")
-        self.move_count = {'X': [], 'O': []}  # Initialize move history here
+        self.move_count = {'X': [], 'O': []} 
 
 
     def switch_player(self):
@@ -44,9 +44,9 @@ class Game:
 
     def log_game_result(self, winner):
         log_dir = 'logs'
-        if not os.path.exists(log_dir):  # Create the directory if it does not exist
+        if not os.path.exists(log_dir):
             os.makedirs(log_dir)
-        log_file = os.path.join(log_dir, 'game_logs.csv')  # Use the full path for the log file
+        log_file = os.path.join(log_dir, 'game_logs.csv')
         log_exists = os.path.exists(log_file)
         player_o_type = 'Bot' if isinstance(self.player2, Bot) else 'Human'
         if not log_exists:
