@@ -11,7 +11,8 @@ class Game:
         self.current_player = self.player1
         self.player2 = Bot("O") if player_mode == 1 else Player("O")
         self.move_count = {'X': [], 'O': []} 
-
+        self.first_move = None
+        self.first_player = 'X'
 
     def switch_player(self):
         self.current_player = self.player2 if self.current_player == self.player1 else self.player1
@@ -26,10 +27,12 @@ class Game:
                 print("Cell already taken, try again.")
                 continue
 
+            if not self.first_move:
+                self.first_move = (self.current_player.symbol, (row, col))
+
             self.board.update_board(row, col, self.current_player.symbol)
             winner = self.board.check_winner()
             self.move_count[self.current_player.symbol].append((row, col))
-
 
             if winner or self.board.is_full():
                 self.log_game_result(winner) 
@@ -53,7 +56,14 @@ class Game:
             print('Creating new log file')
             with open(log_file, 'w', newline='') as file:
                 writer = csv.writer(file)
-                writer.writerow(['Timestamp', 'Winner', 'Player X Moves', 'Player O Moves', 'Player O Type'])
+                writer.writerow(['Timestamp', 'Winner', 'Player X Moves', 'Player O Moves', 'Player O Type', 'First Move', 'First Player Result'])        
+        if winner == self.first_player:
+            first_player_result = 'Win'
+        elif winner is None:
+            first_player_result = 'Draw'
+        else:
+            first_player_result = 'Loss'
+
         with open(log_file, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([
@@ -61,5 +71,7 @@ class Game:
                 winner, 
                 self.move_count['X'], 
                 self.move_count['O'], 
-                player_o_type
+                player_o_type,
+                self.first_move,
+                first_player_result 
             ])
